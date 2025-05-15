@@ -6,19 +6,40 @@
   <title>News Blog</title>
   <link rel="stylesheet" href="style.css" />
 </head>
-<body class="bg-[#d5e3e4] font-sans">
+
+<body class="bg-gray-300 font-sans">
 
   <!-- Header -->
-  <header class="bg-[#0e4452] shadow p-6 mb-6 border-2 border-white">
-    <div class="max-w-6xl mx-auto">
-      <h1 class="text-3xl font-bold text-white px-4 py-2 bg- border-white">News Blog</h1>
-      <p class="text-white px-3 py-1 mt-2 font-extrabold bg-black border-2 border-white w-fit">Latest stories</p>
+   <div class="flex items-center text-center">
+    
+    <div class="flex gap-x-60 px-[205px] bg-[#561d85] py-4 border-[1px] border-black ">
+      <p class="flex"> <span class="bg-[#2c006b] text-white  font-extrabold text-4xl">Pure</span> <span class="bg-[#b11313] text-white  font-extrabold text-4xl">Sports</span></p>
+      <a href="" class="font-[2px]  text-gray-300"> Get pure sports</a>
+      <button type="button" class="border-[1px] border-white text-gray-300 rounded-md px-4 font-[4px]  hover:bg-[#ff0000] hover:text-yellow-200" >Log in</button>
     </div>
+   </div>
+   <nav>
+    <div class="border-2 border-black bg-white p-2 flex justify-between mx-2 my-3">
+      <ul class="flex font-extrabold gap-5">
+        <li>Home</li>
+        <li>Sports</li>
+        <li>Scores</li>
+        <li>Videos</li>
+        <li>TV</li>
+        <li>Pure-Bet</li>
+        <li>Games</li>
+        <li>More</li>
+      </ul>
+      <button class="border-[1px] border-black px-2 py-1 rounded-md hover:bg-[#ff0000]">watch pure</button>
+    </div> 
+   </nav>
+  <header class="bg-[#561d85] shadow p-6 mb-6 border-2 border-black">
+   
   </header>
 
   <!-- Blog Container -->
   <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div id="newsContainer" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 bg-slate-700 border-2 border-white p-5 sm:p-6">
+    <div id="newsContainer" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 bg-[#561d85] border-2 border-white p-5 sm:p-6">
       <!-- News items will appear here -->
     </div>
   </main>
@@ -27,7 +48,7 @@
   <script>
     let newsContainer = document.getElementById("newsContainer");
 
-    fetch("https://newsapi.org/v2/everything?q=UCL&apiKey=7684e1d3a64a4f33ae00c33afcd9a7d1")
+    fetch("https://newsapi.org/v2/top-headlines?country=us&category=sports&apiKey=4a9a668e3bca48c1b0453ef1f29726d4")
       .then(response => response.json())
       .then(data => {
         let articles = data.articles.slice(0, 10); // limit to 10 articles
